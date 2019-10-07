@@ -1,0 +1,12 @@
+Thomas Fournier
+
+Exercice 1:
+4. mvn -v
+5. artifactid : identifant du projet
+   groupeID: identifiant du groupe de projet
+6. Le répertoire target contient les fichiers compilés au format .class
+8. Le classpath est le chemin d'accès dans l'arborescence des classes à exécuter.
+
+Exercice 1: Git
+
+2. pom.xml est un exemple de fichier qui ne fait pas partie des sources du projet
