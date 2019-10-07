@@ -1,25 +1,22 @@
 package fr.dauphine.ja.fournierthomas.shapes;
 
+import java.util.*;
 public class BrokenLine {
-	private Point [] data;
-	int nbPoints=0;
-	
-	public BrokenLine(int capacity) {
-		data=new Point[capacity];
-	}
-	
-	public int pointCapacity() {
-		return data.length;
-	}
+	private ArrayList<Point> data=new ArrayList<Point>();
 	
 	public int nbPoints() {
-		return nbPoints;
+		return data.size();
 	}
-	
-	public int add(Point p) {
-		if(nbPoints>=data.length) return -1;
-		data[nbPoints++]=p;
-		return 0;
+	public boolean contains(Point p) {
+		Objects.requireNonNull(p, "p can't be null");
+		for(Point pt: data) {
+			if(p.equals(pt)) return true;
+		}
+		return false;
+	}
+	public void add(Point p) {
+		Objects.requireNonNull(p, "you can't add a null point");
+		data.add(p);
 		
 	}
 }

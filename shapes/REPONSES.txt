@@ -18,4 +18,4 @@ Exo2:
 
 Exo3:
 
-
+6. pointCapacity n'a plus de sens, nbPoints devient la size de la liste, contains revient à utiliser le contains de la liste.
