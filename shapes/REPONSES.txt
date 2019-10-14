@@ -19,3 +19,15 @@ Exo2:
 Exo3:
 
 6. pointCapacity n'a plus de sens, nbPoints devient la size de la liste, contains revient à utiliser le contains de la liste.
+
+Exo4:
+1. Peut retourner void ou un Point, si la méthode retourne void c'est qu'on effectue la modification directement sur l'instance de Point appelante, si l'on retourn Point on ne modifie pas l'instance appelante et on retourne un nouveau Point issu de la translation.
+
+5. Le problème serait apparu si on avait simplement utiliser "=" dans le constructeur pour l'attribution de center, on s'assure donc de créer un point distinct au niveau du constructeur.
+
+6. Le problème devient qu'on peut manier librement un attribut private de la classe sans utiliser les méthodes de la classe on peut donc dénaturer l'objet. Pour résoudre ce problème on utilise du non mutable.
+
+8. Pour cette question on a rajouté une méthode norm2(Point p) dans la classe Point qui calcule la norme 2 entre les deux points.
+
+Exo5:
+1. Ce n'est pas intéressant car un Anneau ne partage pas toutes les propriétés d'un cercle.

@@ -19,4 +19,19 @@ public class BrokenLine {
 		data.add(p);
 		
 	}
+	public String toString() {
+		String str="";
+		for(Point p: data) str+=p.toString()+" ";
+		return str;
+		
+	}
+	public static void main(String [] args) {
+		BrokenLine myBL=new BrokenLine();
+		for(int i=0; i<10;i++) {
+			myBL.add(new Point(i, i));
+		}
+		System.out.println(myBL.nbPoints());
+		System.out.println(myBL);
+		
+	}
 }

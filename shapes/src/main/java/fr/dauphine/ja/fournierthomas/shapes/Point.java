@@ -2,13 +2,17 @@ package fr.dauphine.ja.fournierthomas.shapes;
 import java.util.*;
 
 public class Point{
-	private int x,y;
+	private double x,y;
 	private static int cpt=0;
 	
-	public Point(int x, int y) {
+	public Point(double x, double y) {
 		this.x=x;
 		this.y=y;
 		cpt++;
+	}
+	public Point(int x, int y) {
+		this.x=x;
+		this.y=y;
 	}
 	public Point(Point pt) {
 		this(pt.getX(), pt.getY());
@@ -16,11 +20,20 @@ public class Point{
 	public Point() {
 		this(0,0);
 	}
-	public int getX() {
+	public double getX() {
 		return x;
 	}
-	public int getY() {
+	public double getY() {
 		return y;
+	}
+	public static int getCpt() {
+		return cpt;
+	}
+	public Point translate(double dx, double dy) {
+		return new Point(x+dx, y+dy);
+	}
+	public double norm2(Point p) {
+		return Math.sqrt((x-p.getX())*(x-p.getX())+(y-p.getY())*(y-p.getY()));
 	}
 	public boolean isSameAs(Point pt) {
 		if(x==pt.getX() && y==pt.getY()) return true;
@@ -41,7 +54,9 @@ public class Point{
 		Point p1=new Point(1,2);
 		Point p2=p1;
 		Point p3=new Point(1,2);
-		
+		System.out.println(p1);
+		p1.translate(1, 1);
+		System.out.println(p1);
 		ArrayList<Point> list=new ArrayList<Point>();
 		list.add(p1);
 		System.out.println(list.indexOf(p2));
