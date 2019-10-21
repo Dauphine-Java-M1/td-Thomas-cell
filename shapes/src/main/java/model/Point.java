@@ -1,7 +1,12 @@
-package fr.dauphine.ja.fournierthomas.shapes;
+package model;
+import java.awt.Graphics;
 import java.util.*;
 
-public class Point{
+import view.Drawer;
+import view.PointDrawer;
+
+public class Point extends Shape{
+	private Drawer d;
 	private double x,y;
 	private static int cpt=0;
 	
@@ -9,10 +14,7 @@ public class Point{
 		this.x=x;
 		this.y=y;
 		cpt++;
-	}
-	public Point(int x, int y) {
-		this.x=x;
-		this.y=y;
+		d=new PointDrawer(this);
 	}
 	public Point(Point pt) {
 		this(pt.getX(), pt.getY());
@@ -28,6 +30,9 @@ public class Point{
 	}
 	public static int getCpt() {
 		return cpt;
+	}
+	public void draw(Graphics arg0) {
+		d.draw(arg0);
 	}
 	public Point translate(double dx, double dy) {
 		return new Point(x+dx, y+dy);

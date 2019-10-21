@@ -1,12 +1,18 @@
-package fr.dauphine.ja.fournierthomas.shapes;
+package model;
 
-public class Circle {
+import java.awt.Graphics;
+
+import view.CircleDrawer;
+import view.Drawer;
+
+public class Circle extends Shape{
 	private Point center;
 	private double radius;
-	
+	private Drawer d;
 	public Circle(double x, double y, double radius) {
 		center=new Point(x,y);
 		this.radius=radius;
+		d=new CircleDrawer(this);
 	}
 	public Circle(Point p, double radius) {
 		this(p.getX(), p.getY(), radius);
@@ -39,6 +45,9 @@ public class Circle {
 			if(circ.contains(p)) return true;
 		}
 		return false;
+	}
+	public void draw(Graphics arg0) {
+		d.draw(arg0);
 	}
 	@Override
 	public boolean equals(Object obj) {

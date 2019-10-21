@@ -1,13 +1,19 @@
-package fr.dauphine.ja.fournierthomas.shapes;
+package model;
 
-public class Ring {
+import java.awt.Graphics;
+
+import view.Drawer;
+import view.RingDrawer;
+
+public class Ring extends Shape{
 	private Circle extern;
 	private double internRadius;
-	
+	private Drawer d;
 	public Ring(Point p, double internRadius, double externRadius) {
 		if(internRadius>externRadius) throw new RuntimeException("Intern Radius must be lower than extern radius");
 		extern=new Circle(p, externRadius);
 		this.internRadius=internRadius;
+		d=new RingDrawer(this);
 	}
 	public Circle getExtern() {
 		return new Circle(extern.getCenter(), extern.getRadius());
@@ -32,7 +38,9 @@ public class Ring {
 		return false;
 		
 	}
-	
+	public void draw(Graphics arg0) {
+		d.draw(arg0);
+	}
 	public boolean contains(Point p, Ring...rings) {
 		for(Ring rg:rings) {
 			if(rg.contains(p)) return true;

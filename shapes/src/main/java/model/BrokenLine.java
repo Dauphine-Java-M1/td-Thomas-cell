@@ -1,9 +1,16 @@
-package fr.dauphine.ja.fournierthomas.shapes;
+package model;
 
+import java.awt.Graphics;
 import java.util.*;
-public class BrokenLine {
+
+import view.BrokenLineDrawer;
+import view.Drawer;
+public class BrokenLine extends Shape{
 	private ArrayList<Point> data=new ArrayList<Point>();
-	
+	private Drawer d;
+	public BrokenLine() {
+		d=new BrokenLineDrawer(this);
+	}
 	public int nbPoints() {
 		return data.size();
 	}
@@ -19,11 +26,18 @@ public class BrokenLine {
 		data.add(p);
 		
 	}
+	public Point get(int n) {
+		if(n<0 || n>data.size()) throw new RuntimeException("Illegal index");
+		return data.get(n);
+	}
 	public String toString() {
 		String str="";
 		for(Point p: data) str+=p.toString()+" ";
 		return str;
 		
+	}
+	public void draw(Graphics arg0) {
+		d.draw(arg0);
 	}
 	public static void main(String [] args) {
 		BrokenLine myBL=new BrokenLine();
