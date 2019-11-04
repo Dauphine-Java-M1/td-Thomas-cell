@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import model.Point;
 
@@ -14,6 +15,7 @@ public class BrokenLineDrawer extends Drawer {
 	@Override
 	public void draw(Graphics arg0) {
 		Point p, p2;
+		arg0.setColor(Color.GRAY);
 		for(int i=0; i<data.nbPoints()-1; i++) {
 			p=data.get(i);
 			p2=data.get(i+1);

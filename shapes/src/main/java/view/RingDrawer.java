@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 import model.Point;
@@ -18,8 +19,10 @@ public class RingDrawer extends Drawer {
 		int intern=(int)data.getInterRadius();
 		int x=(int) p.getX();
 		int y=(int) p.getY();
-		arg0.drawOval(x, y, extern, extern);
-		arg0.drawOval(x, y, intern, intern);
+
+		arg0.fillOval(x-extern, y-extern, extern*2, extern*2);
+		arg0.setColor(Color.WHITE);
+		arg0.fillOval(x-intern, y-intern, intern*2, intern*2);
 
 	}
 

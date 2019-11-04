@@ -17,6 +17,12 @@ public class MyDisplay extends JPanel {
 	public void add(Shape p) {
 		data.add(p);
 	}
+	public void cleanse() {
+		data=new ArrayList<Shape>();
+	}
+	public ArrayList<Shape> getShapes(){
+		return data;
+	}
 	public static void main(String[] args) {
 		MyDisplay tmp=new MyDisplay();
 		JFrame frame=new JFrame("Java Avancé - Graphic Display");
@@ -26,10 +32,14 @@ public class MyDisplay extends JPanel {
 
 		tmp.add(new Ring(new Point(400,400),10,30));
 		tmp.add(new Circle(new Point(100,200),30));
+		tmp.add(new Rectangle(new Point(370,370),60,60));
+		tmp.add(new Rectangle(20,20,300,100));
+		tmp.add(new Circle(50,50,30));
+		tmp.add(new Circle(290,90,30));
 		MyDisplay d=new MyDisplay();
-		frame.add(tmp);
+		frame.add(new Japan());
 	}
-	
+
 	@Override
 	protected void paintComponent(Graphics arg0) {
 		int width=(int)(arg0.getClipBounds().getWidth());
