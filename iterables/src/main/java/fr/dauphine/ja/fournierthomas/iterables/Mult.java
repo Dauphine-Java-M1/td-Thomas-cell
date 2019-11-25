@@ -7,9 +7,9 @@ public class Mult {
 			private List<Integer> data=l;
 
 			@Override
-			public ListIterator<Integer> listIterator(int arg0) {
+			public ListIterator<Integer> listIterator(final int arg0) {
 				return new ListIterator<Integer>(){
-					ListIterator<Integer> it=data.listIterator();
+					ListIterator<Integer> it=data.listIterator(arg0);
 					public boolean hasNext() {
 						
 						return it.hasNext();
